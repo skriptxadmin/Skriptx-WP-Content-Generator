@@ -20,7 +20,7 @@ if (!defined('ABSPATH')) {
 define('SKRIPTX_CONGEN_VERSION', '1.0.1');
 define('SKRIPTX_CONGEN_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('SKRIPTX_CONGEN_PLUGIN_URL', plugin_dir_url(__FILE__));
-define('SKRIPTX_SERVER_ENDPOINT', 'http://localhost:9999');
+define('SKRIPTX_SERVER_ENDPOINT', 'https://congen.skriptx.com/wpgateway');
 
 // ========================================================
 // Core Plugin File Includes
