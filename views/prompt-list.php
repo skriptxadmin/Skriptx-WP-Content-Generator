@@ -4,7 +4,7 @@
     <div class="flex justify-between items-start">
         <h1 class="wp-heading-inline">Prompts</h1>
 
-        <a href="<?php echo esc_url(admin_url('admin.php?page=skriptx-congen--prompts&id=0')); ?>"
+        <a href="<?php echo esc_url(admin_url('admin.php?page=skriptx-congen--prompts&view=create&id=0')); ?>"
            class="page-title-action">
             New Prompt
         </a>

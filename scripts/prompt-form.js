@@ -10,7 +10,7 @@ jQuery(function () {
   hours$.on("change", renderFrequencyText);
   mins$.on("change", renderFrequencyText);
   form$.on("submit", onFormSubmit);
-  if (id) {
+  if (id && parseInt(id)) {
     const data = {
       action: "skriptx-congen-prompt-get",
       id: id,

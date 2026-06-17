@@ -48,7 +48,7 @@ jQuery(function () {
    function editRow(event){
     const id = jQuery(event.target).closest('tr').attr('data-prompt-id');
     if(!id) return;
-     window.location.href = `${window.skriptxcongen.admin_url}?page=skriptx-congen--prompts&id=${id}`;
+     window.location.href = `${window.skriptxcongen.admin_url}?page=skriptx-congen--prompts&view=edit&id=${id}`;
   }
 
    function schedulesRow(event){
