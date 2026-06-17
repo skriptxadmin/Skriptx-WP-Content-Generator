@@ -3,7 +3,7 @@
  * Plugin Name: Skriptx Content Generator
  * Plugin URI: https://skriptx.com
  * Description: Automatically generate and publish AI-powered WordPress content on a schedule.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Skriptx
  * Author URI: https://skriptx.com
  * License: GPLv2 or later
