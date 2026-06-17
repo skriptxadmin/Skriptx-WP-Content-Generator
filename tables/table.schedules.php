@@ -1,0 +1,33 @@
+<?php
+if ( ! defined( 'ABSPATH' ) ) exit;
+if(!function_exists('skriptx_congen_create_schedules_table')){
+function skriptx_congen_create_schedules_table()
+{
+    global $wpdb;
+
+    $table = $wpdb->prefix . 'skriptx_congen_schedules';
+
+    $charset_collate = $wpdb->get_charset_collate();
+
+    require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+$sql = "CREATE TABLE $table (
+    id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+    prompt_id BIGINT UNSIGNED NOT NULL,
+    post_id BIGINT UNSIGNED NULL,
+    status_id TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    started_at DATETIME NULL,
+    completed_at DATETIME NULL,
+    job_id VARCHAR(100) NULL,
+    expires_at DATETIME NOT NULL,
+    error_message LONGTEXT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+) $charset_collate;";
+    dbDelta($sql);
+}
+
+
+}
+
+skriptx_congen_create_schedules_table();
