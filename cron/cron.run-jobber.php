@@ -87,7 +87,7 @@ class SkriptxConGenRunJobber
             return;
         }
 
-        $job = $this->get_job_status(
+        $job = $this->get_job_status($running_row,
             $running_row->job_id
         );
 
@@ -120,7 +120,7 @@ class SkriptxConGenRunJobber
 
     }
 
-    public function get_job_status($job_id)
+    public function get_job_status($running_row, $job_id)
     {
 
         $secret = get_option(
@@ -154,7 +154,6 @@ class SkriptxConGenRunJobber
                 'body'    => $payload,
             ]
         );
-
         if (is_wp_error($response)) {
             return false;
         }
@@ -163,7 +162,7 @@ class SkriptxConGenRunJobber
             $response
         );
         $data = json_decode($body, true);
-      
+
         $signature = $data['signature'] ?? '';
 
         unset($data['signature']);
@@ -243,6 +242,7 @@ class SkriptxConGenRunJobber
             $where
         );
 
+        $this->set_featured_image_runner($running_row);
     }
 
     public function set_schedule_error(
@@ -354,5 +354,51 @@ class SkriptxConGenRunJobber
         }
 
         return $post_id;
+    }
+
+    public function set_featured_image_runner($running_row)
+    {
+
+        if (empty($running_row->id)) {
+
+            return;
+        }
+
+        global $wpdb;
+
+        $schedules_table = $wpdb->prefix . 'skriptx_congen_schedules';
+
+        $schedule = $wpdb->get_row(
+            $wpdb->prepare("SELECT * FROM %i WHERE id = %d", $schedules_table, $running_row->id)
+        );
+
+        if (empty($schedule->post_id) || empty($schedule->prompt_id)) {
+            return;
+        }
+
+        $prompts_table = $wpdb->prefix . 'skriptx_congen_prompts';
+
+        $generate_image = $wpdb->get_var(
+            $wpdb->prepare("SELECT generate_image FROM %i WHERE id = %d", $prompts_table, $schedule->prompt_id)
+        );
+
+        if ((int) $generate_image !== 1) {
+            return;
+        }
+        $images_table = $wpdb->prefix . 'skriptx_congen_images';
+
+       $expires_at = wp_date(
+    'Y-m-d H:i:s',
+    current_time('timestamp') + 600
+);
+
+        $data = [
+            'schedule_id' => $schedule->id,
+            'expires_at'  => $expires_at,
+            'status_id'   => 1,
+        ];
+
+        $wpdb->insert($images_table, $data);
+
     }
 }

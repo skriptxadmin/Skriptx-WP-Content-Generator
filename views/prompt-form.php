@@ -26,6 +26,12 @@ $skriptx_congen_promptId = $id;
         </div>
 
         <div>
+            <label for="generateImage">
+                <input type="checkbox" name="generateImage" id="generateImage"> Generate Image (Seperate credits will be deducted)
+            </label>
+        </div>
+
+        <div>
             <h4>Frequency content to be generated</h4>
 
             <div class="flex justify-start items-start gap-2">

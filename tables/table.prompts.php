@@ -22,6 +22,7 @@ if (! function_exists('skriptx_congen_create_prompts_table')) {
     mins INT UNSIGNED NOT NULL,
     frequency_in_mins INT UNSIGNED NOT NULL,
     is_active TINYINT(1) UNSIGNED NOT NULL DEFAULT 1,
+    generate_image TINYINT(1) UNSIGNED NOT NULL DEFAULT 0,
     runs_count INT UNSIGNED NOT NULL DEFAULT 0,
     last_run DATETIME NULL,
     next_run DATETIME,

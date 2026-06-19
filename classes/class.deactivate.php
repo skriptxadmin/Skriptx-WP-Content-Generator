@@ -18,6 +18,10 @@ class SkriptxConGenDeactivate
 
         $settings->deactivate();
 
+          update_option(
+            'skriptx_congen_db_version', null
+        );
+
     }
 
 }

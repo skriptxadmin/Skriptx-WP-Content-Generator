@@ -16,6 +16,18 @@ class SkriptxConCron
     public $cron_jobber_event = 'skriptx_congen_cron_jobber';
 
     // ========================================================
+// Image Maker (2 minutes)
+// ========================================================
+
+public $cron_imgmaker_title = 'skriptx_congen_2_minutes';
+
+public $cron_imgmaker_interval = 120;
+
+public $cron_imgmaker_description = 'Every 2 minutes';
+
+public $cron_imgmaker_event = 'skriptx_congen_cron_imgmaker';
+
+    // ========================================================
     // Scheduler (3 minutes)
     // ========================================================
 
@@ -47,6 +59,7 @@ class SkriptxConCron
         add_action($this->cron_jobber_event, [$this, 'run_jobber_event']);
         add_action($this->cron_scheduler_event, [$this, 'run_scheduler_event']);
         add_action($this->cron_prompter_event, [$this, 'run_prompter_event']);
+        add_action($this->cron_imgmaker_event,[$this, 'run_imgmaker_event']);
 
     }
 
@@ -67,6 +80,11 @@ class SkriptxConCron
             'interval' => $this->cron_prompter_interval,
             'display'  => $this->cron_prompter_description,
         ];
+
+        $schedules[$this->cron_imgmaker_title] = [
+    'interval' => $this->cron_imgmaker_interval,
+    'display'  => $this->cron_imgmaker_description,
+];
 
         return $schedules;
 
@@ -105,6 +123,16 @@ class SkriptxConCron
 
         }
 
+        if (! wp_next_scheduled($this->cron_imgmaker_event)) {
+
+    wp_schedule_event(
+        time(),
+        $this->cron_imgmaker_title,
+        $this->cron_imgmaker_event
+    );
+
+}
+
     }
 
     public function stop()
@@ -113,8 +141,18 @@ class SkriptxConCron
         wp_clear_scheduled_hook($this->cron_jobber_event);
         wp_clear_scheduled_hook($this->cron_scheduler_event);
         wp_clear_scheduled_hook($this->cron_prompter_event);
+        wp_clear_scheduled_hook($this->cron_imgmaker_event);
 
     }
+
+    public function run_imgmaker_event()
+{
+    require_once SKRIPTX_CONGEN_PLUGIN_DIR . 'cron/cron.run-imgmaker.php';
+
+    $cron = new SkriptxConGenRunImgMaker();
+
+    $cron->init();
+}
 
     public function run_jobber_event()
     {

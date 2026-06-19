@@ -48,6 +48,11 @@ if (! function_exists('skriptx_congen_dashboard_analytics')) {
                 wp_next_scheduled('skriptx_congen_cron_jobber')
             ),
 
+               'imgmaker' => wp_date(
+                'Y-m-d H:i:s',
+                wp_next_scheduled('skriptx_congen_cron_imgmaker')
+            ),
+
             'current' => current_time('mysql'),
             'secret'  => get_option('skriptx_congen_secret_key') ? 'Yes' : 'No',
         ];

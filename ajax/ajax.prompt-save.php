@@ -70,6 +70,19 @@ if (! function_exists('skriptx_congen_prompt_save')) {
         $data['mins']              = $mins;
         $data['next_run']          = current_time('mysql');
 
+    $data['generate_image'] = 0;
+
+if ( isset( $_POST['generateImage'] ) ) {
+
+    $generate_image = sanitize_text_field(
+        wp_unslash( $_POST['generateImage'] )
+    );
+
+    if ( json_decode( $generate_image ) ) {
+        $data['generate_image'] = 1;
+    }
+}
+
         global $wpdb;
 
         // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching

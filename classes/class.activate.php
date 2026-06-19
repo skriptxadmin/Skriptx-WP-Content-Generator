@@ -11,7 +11,19 @@ class SkriptxConGenActivate
 
     private function create_tables(): void
     {
+        $current = get_option('skriptx_congen_db_version');
+
+        if ($current === SKRIPTX_CONGEN_DB_VERSION) {
+            return;
+
+        }
+
         require_once SKRIPTX_CONGEN_PLUGIN_DIR . 'tables/index.php';
+
+          update_option(
+            'skriptx_congen_db_version',
+            SKRIPTX_CONGEN_DB_VERSION
+        );
     }
 
     private function setup_cron(): void

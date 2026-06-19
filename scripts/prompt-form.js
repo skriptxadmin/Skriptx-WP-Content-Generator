@@ -26,6 +26,9 @@ jQuery(function () {
         form$.find("#language").val(row?.language);
         hours$.val(row?.hours?.toString()?.padStart(2, "0"));
         mins$.val(row?.mins?.toString()?.padStart(2, "0"));
+        if(row.generate_image && JSON.parse(row.generate_image)){
+          form$.find("#generateImage").prop('checked', true);
+        }
       },
     };
     window.skriptxAjax(options);
@@ -39,6 +42,7 @@ jQuery(function () {
       language: form$.find("#language").val(),
       hours: hours$.val(),
       mins: mins$.val(),
+      generateImage: form$.find("#generateImage").prop("checked"),
       action: "skriptx-congen-prompt-save",
     };
     const options = {

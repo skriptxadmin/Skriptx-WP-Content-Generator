@@ -169,6 +169,23 @@ class SkriptxConGenRunScheduler
             true
         );
 
+         $signature = $data['signature'] ?? '';
+
+        unset($data['signature']);
+
+        $encoded = json_encode($data);
+
+        $expected = hash_hmac(
+            'sha256',
+            $encoded,
+            $secret
+        );
+
+        if (! hash_equals($expected, $signature)) {
+
+            return false;
+        }
+
         return $data['job_id'] ?? false;
 
     }

@@ -1,6 +1,7 @@
 jQuery(function () {
   const addTable$ = jQuery("table.skriptx-congen-credits-add");
   const subTable$ = jQuery("table.skriptx-congen-credits-sub");
+  const imgTable$ = jQuery("table.skriptx-congen-credits-img");
   getCredits();
 
   function getCredits() {
@@ -14,6 +15,9 @@ jQuery(function () {
         }
         if (res?.data?.sub?.length) {
           renderSubTable(res.data.sub);
+        }
+         if (res?.data?.img?.length) {
+          renderImgTable(res.data.img);
         }
         if (res?.data?.balance) {
           jQuery(".balance").text(res.data.balance);
@@ -44,5 +48,16 @@ jQuery(function () {
             </tr>`;
     });
     subTable$.find("tbody").html(trs$);
+  }
+
+    function renderImgTable(data) {
+    let trs$ = "";
+    data.forEach(function (row) {
+      trs$ += `<tr>
+                <td>${row?.credits}</td>
+                <td>${row?.created_at}</td>
+            </tr>`;
+    });
+    imgTable$.find("tbody").html(trs$);
   }
 });

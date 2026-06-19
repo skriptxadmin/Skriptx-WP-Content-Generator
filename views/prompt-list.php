@@ -20,6 +20,7 @@
                 <th>Prompt</th>
                 <th>Language</th>
                 <th>Frequency</th>
+                <th>Image</th>
                 <th>Last Run</th>
                 <th>Next Run</th>
                 <th>Total Runs</th>

@@ -83,9 +83,11 @@ jQuery(function () {
                 <td>${window.skriptxTruncate(row.prompt)}</td>
                 <td>${row.language}</td>
                 <td>${row.hours?.toString()?.padStart(2, '0')}:${row.mins?.toString()?.padStart(2, '0')}</td>
+                <td>${(row.generate_image && JSON.parse(row.generate_image))?'Yes':'No'}</td>
                 <td>${row.last_run}</td>
                 <td>${row.next_run}</td>
                 <td>${row.runs_count}</td>
+              
                 <td>
                     <button class="button btn-toggle">${row.is_active == 1?'Stop':'Start'}</button>
                 </td>

@@ -13,12 +13,15 @@
                         <li>Next prompter at: <span class="ajax-prompter"></span></li>
                              <li>Next scheduler at:<span class="ajax-scheduler"></span></li>
                              <li>Next jobber at:<span class="ajax-jobber"></span></li>
+                             <li>Next image at:<span class="ajax-imgmaker"></span></li>
                              <li>Server Time:<span class="ajax-current"></span></li>
                              <li>Secret Key:<span class="ajax-secret"></span></li>
+                             <li>Database:<span class="ajax-db"></span></li>
                     </ul>
                 </div>
                 <div class="flex justify-end items-center">
                     <button class="button regenerate-secret-key">Regenerate Secret Key</button>
+                    <button class="button factory-reset">Factory Reset</button>
                 </div>
             </div>
             <div class="stats-grid">
