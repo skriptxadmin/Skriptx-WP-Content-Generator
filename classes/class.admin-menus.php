@@ -17,7 +17,7 @@ class SkriptxConGenAdminMenus
             'skriptx-congen',
             [$this, 'dashboard_page'],
             'dashicons-admin-site',
-            25
+            99
         );
 
         add_submenu_page(

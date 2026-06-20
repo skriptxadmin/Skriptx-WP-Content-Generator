@@ -15,7 +15,7 @@ Automatically generate and publish AI-powered content at scheduled intervals dir
 | Requires at least | 6.2                                                       |
 | Tested up to      | 7.0                                                       |
 | Requires PHP      | 8.1                                                       |
-| Version           | 2.0.0                                                     |
+| Version           | 2.0.1                                                     |
 | License           | GPLv2 or later                                            |
 | License URI       | https://www.gnu.org/licenses/gpl-2.0.html                 |
 
@@ -25,7 +25,7 @@ Automatically generate and publish AI-powered content at scheduled intervals dir
 
 Skriptx Content Generator is a WordPress plugin that helps website owners automate content creation using artificial intelligence.
 
-Create content generation schedules, define prompts, choose categories, and let the plugin generate articles automatically at specified intervals.
+Create content generation schedules, define prompts, and let the plugin generate articles automatically at specified intervals.
 
 Whether you run a blog, news website, niche content site, or content marketing campaign, Skriptx Content Generator can help streamline your publishing workflow.
 
@@ -120,7 +120,7 @@ Yes. Content generation requires access to the AI service.
 
 ## Changelog
 
-### 2.0.0
+### 2.0.1
 
 * Initial release.
 * AI-powered content generation.
@@ -134,7 +134,7 @@ Yes. Content generation requires access to the AI service.
 
 ## Upgrade Notice
 
-### 2.0.0
+### 2.0.1
 
 Initial public release of Skriptx Content Generator.
 

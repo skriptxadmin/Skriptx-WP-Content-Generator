@@ -3,7 +3,7 @@
  * Plugin Name: Skriptx Content Generator
  * Plugin URI: https://skriptx.com
  * Description: Automatically generate and publish AI-powered WordPress content on a schedule.
- * Version: 2.0.0
+ * Version: 2.0.1
  * Author: Skriptx
  * Author URI: https://skriptx.com
  * License: GPLv2 or later
@@ -17,8 +17,8 @@ if (!defined('ABSPATH')) {
 // ========================================================
 // Constants
 // ========================================================
-define('SKRIPTX_CONGEN_VERSION', '2.0.0');
-define('SKRIPTX_CONGEN_DB_VERSION', '2.0.0');
+define('SKRIPTX_CONGEN_VERSION', '2.0.1');
+define('SKRIPTX_CONGEN_DB_VERSION', '2.0.1');
 define('SKRIPTX_CONGEN_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('SKRIPTX_CONGEN_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('SKRIPTX_SERVER_ENDPOINT', 'https://congen.skriptx.com/wpgateway');
