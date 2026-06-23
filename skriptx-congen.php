@@ -1,13 +1,13 @@
 <?php
 /**
  * Plugin Name: Skriptx Content Generator
- * Plugin URI: https://skriptx.com
+ * Plugin URI: https://congen.skriptx.com
  * Description: Automatically generate and publish AI-powered WordPress content on a schedule.
- * Version: 2.0.1
+ * Version: 2.0.2
  * Author: Skriptx
  * Author URI: https://skriptx.com
  * License: GPLv2 or later
- * Text Domain: skriptx-congen
+ * Text Domain: skriptx-content-generator
  */
 
 if (!defined('ABSPATH')) {
