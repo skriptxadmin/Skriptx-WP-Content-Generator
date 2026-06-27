@@ -1,17 +1,13 @@
-<?php if ( ! defined( 'ABSPATH' ) ) exit;?>
-
 <?php
-// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only admin navigation parameter.
-$id = isset($_GET['id']) ? absint(wp_unslash($_GET['id'])) : null;
 
-$skriptx_congen_promptId = $id;
+if ( ! defined( 'ABSPATH' ) ) exit;
+
+$id = filter_input( INPUT_GET, 'id', FILTER_VALIDATE_INT );
+
+
+$skriptx_congen_promptId = absint( $id );
+
 ?>
-
-<?php if (! $skriptx_congen_promptId) { ?>
-<script>
-    window.location.href = "<?php echo esc_url(admin_url('admin.php?page=skriptx-congen--prompts')); ?>";
-</script>
-<?php return; } ?>
 
 <div class="wrap">
     <div class="flex justify-between items-start">

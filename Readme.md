@@ -15,7 +15,7 @@ Automatically generate and publish AI-powered content at scheduled intervals dir
 | Requires at least | 6.2                                                       |
 | Tested up to      | 7.0                                                       |
 | Requires PHP      | 8.1                                                       |
-| Version           | 2.0.1                                                     |
+| Version           | **3.0.0**                                                 |
 | License           | GPLv2 or later                                            |
 | License URI       | https://www.gnu.org/licenses/gpl-2.0.html                 |
 
@@ -27,7 +27,9 @@ Skriptx Content Generator is a WordPress plugin that helps website owners automa
 
 Create content generation schedules, define prompts, and let the plugin generate articles automatically at specified intervals.
 
-Whether you run a blog, news website, niche content site, or content marketing campaign, Skriptx Content Generator can help streamline your publishing workflow.
+Whether you run a blog, news website, niche content site, affiliate website, or content marketing campaign, Skriptx Content Generator can help streamline your publishing workflow.
+
+The plugin uses the **Skriptx Content Generation Service** to generate AI-powered content and images. Before any information is transmitted to the service, the website administrator is presented with a consent screen and must explicitly approve the connection.
 
 ---
 
@@ -35,15 +37,15 @@ Whether you run a blog, news website, niche content site, or content marketing c
 
 * Generate AI-powered content automatically.
 * Schedule content generation at custom intervals.
-* Create and manage multiple content prompts.
+* Create and manage multiple AI prompts.
 * Publish articles directly to WordPress.
-* Assign categories automatically.
-* Generate SEO-friendly titles and content.
-* Track generation status and history.
+* Automatically assign categories.
+* Generate SEO-friendly titles and article content.
+* AI image generation support.
 * Dashboard analytics and monitoring.
-* Secure API communication.
+* Secure authenticated API communication.
 * WordPress Cron integration.
-* Clean and user-friendly admin interface.
+* Clean and user-friendly administration interface.
 
 ---
 
@@ -54,29 +56,100 @@ Whether you run a blog, news website, niche content site, or content marketing c
 * Niche content websites
 * Affiliate marketing websites
 * Business blogs
-* Educational content publishing
+* Educational websites
 * Content marketing campaigns
 
 ---
 
 ## How It Works
 
-1. Create a content prompt.
-2. Configure publishing options.
-3. Set the generation interval.
-4. Activate the schedule.
-5. The plugin automatically generates and publishes content based on the configured schedule.
+1. Install and activate the plugin.
+2. Provide consent to connect your website to the Skriptx Content Generation Service.
+3. Generate a unique secret key for your website.
+4. Create one or more AI prompts.
+5. Configure publishing options and schedules.
+6. The plugin automatically submits content generation jobs.
+7. Generated content is returned to your website and published according to your configured schedule.
 
 ---
 
 ## Installation
 
-1. Download the plugin from https://congen.skriptx.com
-2. Upload the plugin files to the `/wp-content/plugins/skriptx-content-generator/` directory, or install through the WordPress Plugins screen.
-3. Activate the plugin through the **Plugins** screen in WordPress.
-4. Navigate to **Skriptx Content Generator** in the WordPress admin area.
-5. Configure your AI settings and create your first prompt.
-6. Create a schedule and start generating content.
+1. Download the plugin from https://congen.skriptx.com.
+2. Upload the plugin to `/wp-content/plugins/skriptx-content-generator/` or install it through the WordPress Plugins screen.
+3. Activate the plugin.
+4. Open **Skriptx Content Generator** from the WordPress admin menu.
+5. Read and accept the consent screen.
+6. Generate your website's secret key.
+7. Create your prompts and schedules.
+
+---
+
+# External Services
+
+This plugin requires the **Skriptx Content Generation Service** to function.
+
+The service is hosted at:
+
+https://congen.skriptx.com
+
+The plugin communicates with this service only after the website administrator explicitly provides consent and activates the service.
+
+### Purpose of the service
+
+The Skriptx Content Generation Service is used to:
+
+* Register and authenticate your website.
+* Generate AI-powered article content.
+* Generate AI-powered images (when enabled).
+* Submit content generation jobs.
+* Monitor job progress.
+* Retrieve generated content.
+* Retrieve generated images.
+* Retrieve available account credits.
+* Deactivate the website connection when requested.
+
+### Information transmitted
+
+Depending on the operation being performed, the plugin may securely transmit:
+
+* Website URL (Domain Name)
+* Administrator Email Address
+* AI prompts created by the administrator
+* Content generation requests
+* Image generation requests
+* Generated job identifiers
+* Authentication metadata
+* Plugin version (when required for compatibility)
+
+### When information is transmitted
+
+Information is transmitted only in the following situations:
+
+* When the administrator explicitly generates and activates a secret key.
+* When content generation is manually or automatically requested.
+* When AI image generation is requested.
+* When checking the status of submitted generation jobs.
+* When retrieving available account credits.
+* When the administrator disconnects the website from the service.
+
+**No website information is transmitted until the administrator explicitly provides consent.**
+
+### Privacy Policy
+
+https://congen.skriptx.com/privacy
+
+### Terms of Service
+
+https://congen.skriptx.com/terms
+
+### Disclaimer
+
+https://congen.skriptx.com/disclaimer
+
+### Support
+
+https://support.skriptx.com
 
 ---
 
@@ -84,76 +157,74 @@ Whether you run a blog, news website, niche content site, or content marketing c
 
 ### Does the plugin generate content automatically?
 
-Yes. Once a schedule is created and activated, the plugin can automatically generate content at the configured intervals.
+Yes. Once a schedule is configured and activated, the plugin can automatically generate and publish content using WordPress Cron.
 
 ### Can I create multiple schedules?
 
-Yes. Multiple schedules can be created and managed independently.
+Yes. Multiple schedules can be managed independently.
 
-### Can generated articles be assigned to categories automatically?
+### Can generated articles be assigned to categories?
 
-Yes. Categories can be configured during schedule creation.
+Yes. Categories are automatically determined by the AI based on the generated content and assigned during publication.
 
-### Does the plugin use WordPress Cron?
+### Does the plugin require an internet connection?
 
-Yes. The plugin utilizes WordPress Cron for scheduled content generation.
+Yes. The plugin communicates with the Skriptx Content Generation Service to generate content and images.
 
-### Can I edit generated content before publishing?
+### Are generated articles automatically published?
 
-Depending on the configured workflow, generated content can be reviewed and edited before publication.
+Yes. Generated content is automatically published according to the schedules and publishing options configured by the administrator.
 
-### Is an internet connection required?
+### Can I review generated content before it is published?
 
-Yes. Content generation requires access to the AI service.
+No. The plugin is designed to automatically publish AI-generated content according to the configured schedules. Administrators should carefully design their prompts and scheduling before enabling automatic publishing.
+
+### Does the plugin work without the external service?
+
+No. The plugin requires the Skriptx Content Generation Service to generate AI-powered content and images.
 
 ---
 
-## Screenshots
-
-1. Dashboard Overview
-2. Prompt Management
-3. Schedule Creation
-4. Content Generation Analytics
-5. Generated Content History
 
 ---
 
 ## Changelog
 
-### 2.0.1
+## 3.0.0
 
-* Initial release.
-* AI-powered content generation.
-* Scheduled publishing.
-* Prompt management.
-* Dashboard analytics.
-* Content generation tracking.
-* WordPress Cron integration.
+* Added administrator consent workflow before any external communication.
+* Added transparent disclosure of external services.
+* Secret key generation now requires explicit administrator consent.
+* Improved security and privacy compliance.
+* Improved API authentication.
+* Performance improvements and bug fixes.
 
 ---
 
 ## Upgrade Notice
 
-### 2.0.1
+### 3.0.0
 
-Initial public release of Skriptx Content Generator.
+This release introduces an explicit administrator consent workflow before connecting to the Skriptx Content Generation Service, along with improved transparency regarding external services and data transmission.
 
 ---
 
 ## Privacy
 
-This plugin may communicate with external AI services to generate content. User prompts and content generation requests may be transmitted to those services as required for operation.
+The plugin does not communicate with external services until the website administrator explicitly grants consent.
 
-Website administrators are responsible for ensuring compliance with local privacy laws and regulations when using AI-generated content.
+Administrators are responsible for ensuring that the use of AI-generated content complies with applicable laws, regulations, copyright requirements, and their website's privacy obligations.
 
 ---
 
 ## Disclaimer
 
-AI-generated content should be reviewed before publication. Website owners are responsible for all published content and for ensuring compliance with applicable laws, regulations, and platform policies.
+AI-generated content should always be reviewed before publication.
+
+Website owners remain solely responsible for all published content, including compliance with applicable laws, copyright, privacy regulations, search engine guidelines, and platform policies.
 
 ---
 
 ## Website
 
-**Skriptx Content Generator:** https://congen.skriptx.com
+https://congen.skriptx.com

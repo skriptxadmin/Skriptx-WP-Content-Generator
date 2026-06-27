@@ -24,20 +24,20 @@ if (! function_exists('skriptx_congen_prompt_save')) {
         if (
             ! $data['prompt'] ||
             ! is_string($data['prompt']) ||
-            strlen($data['prompt']) < 10 ||
-            strlen($data['prompt']) > 500
+            mb_strlen($data['prompt']) < 10 ||
+            mb_strlen($data['prompt']) > 500
         ) {
             wp_send_json_error('Invalid prompt specified');
         }
-
+        
         // ------------------------------------------------
         // Language validation
         // ------------------------------------------------
         if (
             ! $data['language'] ||
             ! is_string($data['language']) ||
-            strlen($data['language']) < 3 ||
-            strlen($data['language']) > 15
+            mb_strlen($data['language']) < 3 ||
+            mb_strlen($data['language']) > 15
         ) {
             wp_send_json_error('Invalid language specified');
         }

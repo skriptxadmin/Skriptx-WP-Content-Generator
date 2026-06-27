@@ -1,22 +1,6 @@
 jQuery(function () {
-  const regenerateSecretKey$ = jQuery("button.regenerate-secret-key");
   const factoryReset$ = jQuery("button.factory-reset");
 
-  regenerateSecretKey$.on("click", function () {
-    const verify = confirm(
-      "Are you sure you want to regenerate the secret key. This will create error for existing job.",
-    );
-    if (!verify) return;
-    const options = {
-      data: {
-        action: "skriptx-congen-set-secret-key",
-      },
-      onSuccess: function (res) {
-        alert("Secret key regenerated");
-      },
-    };
-    window.skriptxAjax(options);
-  });
 
   factoryReset$.on("click", function () {
     const verify = confirm(

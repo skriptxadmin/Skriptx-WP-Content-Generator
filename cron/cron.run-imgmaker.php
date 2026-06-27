@@ -54,7 +54,7 @@ class SkriptxConGenRunImgMaker
                 "
                 SELECT *
                 FROM %i
-                WHEREg
+                WHERE
                     status_id = %d
                     AND started_at is NOT NULL
                     AND completed_at IS NULL
@@ -311,9 +311,6 @@ class SkriptxConGenRunImgMaker
 
         // phpcs:ignore Squiz.PHP.DiscouragedFunctions.Discouraged
 set_time_limit(0);
-
-// phpcs:ignore Squiz.PHP.DiscouragedFunctions.Discouraged
-ini_set('memory_limit', '-1');
 
         $response = wp_remote_post(
             SKRIPTX_SERVER_ENDPOINT . '/domains/images',

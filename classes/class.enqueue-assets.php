@@ -15,6 +15,7 @@ class SkriptxConGenEnqueueAssets
             'toplevel_page_skriptx-congen',
             'skriptx-congen_page_skriptx-congen--prompts',
             'skriptx-congen_page_skriptx-congen--credits',
+            'skriptx-congen_page_skriptx-congen--consent',
         ];
 
         if (! in_array($hook, $allowed_hooks, true)) {
@@ -79,6 +80,9 @@ class SkriptxConGenEnqueueAssets
 
             'skriptx-congen_page_skriptx-congen--credits' => [
                 'congen-credits' => 'credits.js',
+            ],
+             'skriptx-congen_page_skriptx-congen--consent' => [
+                'congen-consent' => 'consent.js',
             ],
         ];
 

@@ -45,6 +45,16 @@ jQuery(function () {
       generateImage: form$.find("#generateImage").prop("checked"),
       action: "skriptx-congen-prompt-save",
     };
+
+    if(data.prompt?.length < 10){
+      alert("Prompt should be atleast 10 characters");
+      return;
+    }
+    
+    if(data.prompt?.length > 500){
+      alert("Prompt should be exceed 500 characters");
+      return;
+    }
     const options = {
       data: data,
       method: "POST",

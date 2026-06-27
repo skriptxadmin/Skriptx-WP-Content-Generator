@@ -20,8 +20,10 @@
                     </ul>
                 </div>
                 <div class="flex justify-end items-center">
-                    <button class="button regenerate-secret-key">Regenerate Secret Key</button>
-                    <button class="button factory-reset">Factory Reset</button>
+                  <a class="button" href="<?php echo esc_url( admin_url( 'admin.php?page=skriptx-congen--consent' ) ); ?>">
+    Regenerate Secret Key
+</a>
+  <button class="button factory-reset">Factory Reset</button>
                 </div>
             </div>
             <div class="stats-grid">
